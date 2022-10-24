@@ -13,7 +13,7 @@ function App() {
   
   useEffect(() => {
     api.get("/todos").then((results) => {
-        console.log(results.data)
+       
          setItems(results.data)
       })
       .catch((err) => {
