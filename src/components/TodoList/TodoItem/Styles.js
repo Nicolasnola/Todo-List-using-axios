@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
      },
      contextRigth:{
       width:"15%",
-      alignItems:"flex-end",
+      backgroundColor:'transparent'
     },
      price:{
        color:"#ffffff",
