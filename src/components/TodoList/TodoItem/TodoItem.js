@@ -21,6 +21,12 @@ export default function TodoItem({ completed, title }) {
           checked={indicator}
           onPress={() => setIndicator(!indicator)}
         />
+        <Image
+          style={styles.deleteLogo}
+          source={{
+            uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Delete-button.svg/101px-Delete-button.svg.png?20200716131229",
+          }}
+        />
       </View>
     </View>
   );

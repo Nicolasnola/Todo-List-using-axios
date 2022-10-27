@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  marginView: {
+    marginTop: 15,
+  },
   mainContent: {
     //width:"90%",
     //height:"auto",
@@ -11,10 +14,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: "row",
     alignItems: "center",
-    padding: 10,
+    padding: 15,
   },
   contextLeft: {
-    width: "80%",
+    width: "85%",
     alignItems: "flex-start",
   },
   boxLogo: {
@@ -34,7 +37,7 @@ const styles = StyleSheet.create({
     //fontWeight:"bold",
   },
   contextRigth: {
-    width: "20%",
+    width: "15%",
     backgroundColor: "transparent",
   },
   price: {
@@ -42,10 +45,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
-  deleteLogo: {
-    width: 15,
-    height: 20,
-    marginLeft: 20,
+  userLogo: {
+    width: 40,
+    height: 40,
+    backgroundColor: "transparent",
   },
   //
 });
