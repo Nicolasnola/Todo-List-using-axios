@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import { FlatList } from "react-native";
 import api from "../../../services";
 import UserItem from "./UserItem/UserItem";
+import Loading from "../Loading/Loading";
 
 export default function UserList({ navigation }) {
   const [userItem, setUserItem] = useState(null);
