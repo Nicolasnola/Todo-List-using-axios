@@ -47,6 +47,9 @@ const styles = StyleSheet.create({
     height: 20,
     marginLeft: 20,
   },
+  trashBoxView: {
+    display: "flex",
+  },
   //
 });
 

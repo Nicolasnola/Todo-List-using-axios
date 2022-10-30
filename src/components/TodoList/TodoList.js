@@ -5,18 +5,27 @@ import api from "../../../services";
 import Loading from "../Loading/Loading";
 
 export default function TodoList({ navigation }) {
-  const [todoListItem, setTodoLiostItem] = useState(null);
+  const [todoListItem, setTodoListItem] = useState(null);
 
   useEffect(() => {
     api
       .get("/todos")
       .then((results) => {
-        setTodoLiostItem(results.data);
+        setTodoListItem(results.data);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro : " + err);
       });
   }, []);
+
+  function deleteTodo(deleteTitle) {
+    console.log("clickado" + deleteTitle);
+
+    const filterTitle = todoListItem.filter(
+      (todoListItem) => todoListItem.title !== deleteTitle
+    );
+    setTodoListItem(filterTitle);
+  }
 
   return (
     <Fragment>
@@ -24,7 +33,14 @@ export default function TodoList({ navigation }) {
         <FlatList
           data={todoListItem}
           renderItem={({ item }) => {
-            return <TodoItem title={item.title} completed={item.completed} />;
+            return (
+              <TodoItem
+                title={item.title}
+                completed={item.completed}
+                id={item.id}
+                deleteTodo={deleteTodo}
+              />
+            );
           }}
         />
       ) : (

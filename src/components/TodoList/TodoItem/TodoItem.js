@@ -5,8 +5,10 @@ import styles from "./Styles";
 import { TouchableNativeFeedback } from "react-native";
 import { TouchableOpacity } from "react-native";
 
-export default function TodoItem({ completed, title }) {
+export default function TodoItem({ completed, title, deleteTodo }) {
   const [indicator, setIndicator] = useState(completed);
+
+  //const [todoTitle, setTodoTitle] = useState(title);
 
   return (
     <View style={styles.mainContent}>
@@ -16,17 +18,21 @@ export default function TodoItem({ completed, title }) {
         </View>
       </View>
       <View style={styles.contextRigth}>
-        <CheckBox
-          center
-          checked={indicator}
-          onPress={() => setIndicator(!indicator)}
-        />
-        <Image
-          style={styles.deleteLogo}
-          source={{
-            uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Delete-button.svg/101px-Delete-button.svg.png?20200716131229",
-          }}
-        />
+        <View style={styles.trashBoxView}>
+          <CheckBox
+            center
+            checked={indicator}
+            onPress={() => setIndicator(!indicator)}
+          />
+          <TouchableOpacity onPress={() => deleteTodo(title)}>
+            <Image
+              style={styles.deleteLogo}
+              source={{
+                uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Delete-button.svg/101px-Delete-button.svg.png?20200716131229",
+              }}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
