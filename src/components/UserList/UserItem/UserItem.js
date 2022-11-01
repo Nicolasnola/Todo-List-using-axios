@@ -3,13 +3,17 @@ import { View, Text, Image } from "react-native";
 import styles from "./Styles";
 import { TouchableNativeFeedback } from "react-native";
 import { TouchableOpacity } from "react-native";
+import { useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 
-export default function UserItem({ userId, navigation }) {
-  //const [indicator, setIndicator] = useState(completed);
+export default function UserItem({ userId, user }) {
+  const [userIdFilter, setUserIdFilter] = useState(null);
+  console.log(user);
 
+  const navigation = useNavigation();
   return (
     <View>
-      <TouchableOpacity onPress={() => navigation.navigate("TodoList")}>
+      <TouchableOpacity onPress={() => navigation.navigate("TodoList", user)}>
         <View style={styles.mainContent}>
           <View style={styles.contextLeft}>
             <View style={styles.boxLogo}>
