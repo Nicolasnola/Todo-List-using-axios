@@ -1,9 +1,10 @@
-import React, { Fragment, useState } from "react";
-import { View, Text, Image } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Image, SafeAreaView } from "react-native";
 import { CheckBox } from "@rneui/themed";
 import styles from "./Styles";
 import { TouchableNativeFeedback } from "react-native";
 import { TouchableOpacity } from "react-native";
+import { Checkbox } from "react-native-elements";
 
 export default function TodoItem({ completed, title, deleteTodo }) {
   const [indicator, setIndicator] = useState(completed);
@@ -14,16 +15,25 @@ export default function TodoItem({ completed, title, deleteTodo }) {
     <View style={styles.mainContent}>
       <View style={styles.contextLeft}>
         <View style={styles.boxLogo}>
-          <Text style={styles.dayCotation}>{title}</Text>
+          <CheckBox
+            style={styles.dayCotation}
+            title={title}
+            checkedIcon="check"
+            uncheckedIcon="square-o"
+            checkedColor="green"
+            uncheckedColor="#AEB6BF"
+            checked={indicator}
+            onPress={() => setIndicator(!indicator)}
+          />
         </View>
       </View>
       <View style={styles.contextRigth}>
         <View style={styles.trashBoxView}>
-          <CheckBox
+          {/* <CheckBox
             center
             checked={indicator}
             onPress={() => setIndicator(!indicator)}
-          />
+          /> */}
           <TouchableOpacity onPress={() => deleteTodo(title)}>
             <Image
               style={styles.deleteLogo}

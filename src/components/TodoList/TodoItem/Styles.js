@@ -14,8 +14,12 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   contextLeft: {
-    width: "80%",
+    width: "85%",
     alignItems: "flex-start",
+  },
+  contextRigth: {
+    width: "200%",
+    backgroundColor: "transparent",
   },
   boxLogo: {
     flexDirection: "row",
@@ -33,10 +37,7 @@ const styles = StyleSheet.create({
     color: "#000000",
     //fontWeight:"bold",
   },
-  contextRigth: {
-    width: "20%",
-    backgroundColor: "transparent",
-  },
+
   price: {
     color: "#ffffff",
     fontSize: 18,
@@ -47,8 +48,8 @@ const styles = StyleSheet.create({
     height: 20,
     marginLeft: 20,
   },
-  trashBoxView: {
-    display: "flex",
+  total: {
+    paddingTop: 15,
   },
   //
 });

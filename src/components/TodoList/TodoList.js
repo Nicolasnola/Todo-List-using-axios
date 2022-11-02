@@ -3,6 +3,7 @@ import { FlatList } from "react-native";
 import TodoItem from "./TodoItem/TodoItem";
 import api from "../../../services";
 import Loading from "../Loading/Loading";
+import styles from "./TodoItem/Styles";
 
 export default function TodoList({ navigation, route }) {
   const [todoListItem, setTodoListItem] = useState(route.params.todoList);
@@ -20,6 +21,7 @@ export default function TodoList({ navigation, route }) {
     <Fragment>
       {todoListItem ? (
         <FlatList
+          style={styles.total}
           data={todoListItem}
           renderItem={({ item }) => {
             return (

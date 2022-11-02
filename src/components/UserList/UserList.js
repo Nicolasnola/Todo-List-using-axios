@@ -4,6 +4,7 @@ import api from "../../../services";
 import UserItem from "./UserItem/UserItem";
 import Loading from "../Loading/Loading";
 import { set } from "react-native-reanimated";
+import styles from "./UserItem/Styles";
 
 export default function UserList({ navigation }) {
   const [userItem, setUserItem] = useState([]);
@@ -48,6 +49,7 @@ export default function UserList({ navigation }) {
     <Fragment>
       {userItem ? (
         <FlatList
+          style={styles.total}
           data={userListWithTodos}
           renderItem={({ item }) => {
             return <UserItem userId={item.userId} user={item} />;

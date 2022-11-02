@@ -52,6 +52,9 @@ const teste = StyleSheet.create({
     alignItems: "center",
     paddingTop: Platform.OS === "android" ? 40 : 0,
   },
+  stackBar: {
+    marginBottom: 10,
+  },
 });
 
 export default App;

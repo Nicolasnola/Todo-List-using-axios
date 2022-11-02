@@ -46,9 +46,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   userLogo: {
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
     backgroundColor: "transparent",
+    marginRight: 15,
+  },
+  total: {
+    paddingTop: 15,
   },
   //
 });

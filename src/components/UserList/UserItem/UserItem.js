@@ -17,17 +17,14 @@ export default function UserItem({ userId, user }) {
         <View style={styles.mainContent}>
           <View style={styles.contextLeft}>
             <View style={styles.boxLogo}>
+              <Image
+                style={styles.userLogo}
+                source={require("../../../../img/user.png")}
+              />
               <Text style={styles.dayCotation}>User {userId}</Text>
             </View>
           </View>
-          <View style={styles.contextRigth}>
-            <Image
-              style={styles.userLogo}
-              source={{
-                uri: "https://img2.gratispng.com/20180331/khw/kisspng-computer-icons-user-clip-art-user-5abf13d4b67e20.4808850915224718927475.jpg",
-              }}
-            />
-          </View>
+          <View style={styles.contextRigth}></View>
         </View>
       </TouchableOpacity>
     </View>
