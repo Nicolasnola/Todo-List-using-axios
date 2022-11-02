@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import TodoList from "./src/components/TodoList/TodoList";
 import UserList from "./src/components/UserList/UserList";
+import MyTabs from "./src/components/TodoList/topTab";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +26,7 @@ function App() {
         />
         <Stack.Screen
           name="TodoList"
-          component={TodoList}
+          component={MyTabs}
           options={{
             headerStyle: {
               backgroundColor: "#34495E",

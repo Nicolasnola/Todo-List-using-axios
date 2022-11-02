@@ -1,11 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { FlatList } from "react-native";
-import TodoItem from "./TodoItem/TodoItem";
-import api from "../../../services";
-import Loading from "../Loading/Loading";
-import styles from "./TodoItem/Styles";
 
-export default function TodoList({ navigation, userTop }) {
+import Loading from "../../Loading/Loading";
+import styles from "./Styles";
+import CompletedItem from "./completedItem";
+
+export default function CompletedList({ navigation, userTop }) {
   const [todoListItem, setTodoListItem] = useState(userTop);
 
   function deleteTodo(deleteTitle) {
@@ -23,7 +23,7 @@ export default function TodoList({ navigation, userTop }) {
           data={todoListItem}
           renderItem={({ item }) => {
             return (
-              <TodoItem
+              <CompletedItem
                 title={item.title}
                 completed={item.completed}
                 id={item.id}

@@ -20,8 +20,6 @@ export default function UserList({ navigation }) {
     return userList;
   }
 
-  console.log(getUserList());
-
   const userList = getUserList();
   const userListWithTodos = userList.map((u) => {
     return {
@@ -30,7 +28,6 @@ export default function UserList({ navigation }) {
     };
   });
 
-  console.log(userListWithTodos[0]);
   //const [userIdFilter, setUserIdFilter] = useState(null);
 
   useEffect(() => {
@@ -38,7 +35,6 @@ export default function UserList({ navigation }) {
       .get("/todos")
       .then((results) => {
         setUserItem(results.data);
-        console.log();
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro : " + err);

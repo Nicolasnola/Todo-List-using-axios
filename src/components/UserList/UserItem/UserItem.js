@@ -8,7 +8,6 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function UserItem({ userId, user }) {
   const [userIdFilter, setUserIdFilter] = useState(null);
-  console.log(user);
 
   const navigation = useNavigation();
   return (
