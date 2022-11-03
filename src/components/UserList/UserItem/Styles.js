@@ -46,8 +46,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   userLogo: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
+    borderRadius: 50,
     backgroundColor: "transparent",
     marginRight: 15,
   },

@@ -6,7 +6,12 @@ import Loading from "../Loading/Loading";
 import styles from "./TodoItem/Styles";
 
 export default function TodoList({ navigation, userTop }) {
-  const [todoListItem, setTodoListItem] = useState(userTop);
+  const [todoListItem, setTodoListItem] = useState([]);
+
+  useEffect(() => {
+    const inCompletedFilter = userTop.filter((u) => u.completed === false);
+    setTodoListItem(inCompletedFilter);
+  }, []);
 
   function deleteTodo(deleteTitle) {
     const filterTitle = todoListItem.filter(
@@ -27,6 +32,7 @@ export default function TodoList({ navigation, userTop }) {
                 title={item.title}
                 completed={item.completed}
                 id={item.id}
+                item={item}
                 deleteTodo={deleteTodo}
               />
             );

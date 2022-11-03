@@ -6,7 +6,12 @@ import styles from "./Styles";
 import CompletedItem from "./completedItem";
 
 export default function CompletedList({ navigation, userTop }) {
-  const [todoListItem, setTodoListItem] = useState(userTop);
+  const [todoListItem, setTodoListItem] = useState([]);
+
+  useEffect(() => {
+    const completedFilter = userTop.filter((u) => u.completed === true);
+    setTodoListItem(completedFilter);
+  }, []);
 
   function deleteTodo(deleteTitle) {
     const filterTitle = todoListItem.filter(
