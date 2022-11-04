@@ -5,27 +5,18 @@ import Loading from "../../Loading/Loading";
 import styles from "./Styles";
 import CompletedItem from "./completedItem";
 
-export default function CompletedList({ navigation, userTop }) {
-  const [todoListItem, setTodoListItem] = useState([]);
-
-  useEffect(() => {
-    const completedFilter = userTop.filter((u) => u.completed === true);
-    setTodoListItem(completedFilter);
-  }, []);
-
-  function deleteTodo(deleteTitle) {
-    const filterTitle = todoListItem.filter(
-      (todoListItem) => todoListItem.title !== deleteTitle
-    );
-    setTodoListItem(filterTitle);
-  }
-
+export default function CompletedList({
+  navigation,
+  completedFilter,
+  deleteTodo,
+  setCheck,
+}) {
   return (
     <Fragment>
-      {todoListItem ? (
+      {completedFilter ? (
         <FlatList
           style={styles.total}
-          data={todoListItem}
+          data={completedFilter}
           renderItem={({ item }) => {
             return (
               <CompletedItem
@@ -33,6 +24,8 @@ export default function CompletedList({ navigation, userTop }) {
                 completed={item.completed}
                 id={item.id}
                 deleteTodo={deleteTodo}
+                setCheck={setCheck}
+                item={item}
               />
             );
           }}

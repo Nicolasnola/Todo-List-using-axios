@@ -5,27 +5,18 @@ import api from "../../../services";
 import Loading from "../Loading/Loading";
 import styles from "./TodoItem/Styles";
 
-export default function TodoList({ navigation, userTop }) {
-  const [todoListItem, setTodoListItem] = useState([]);
-
-  useEffect(() => {
-    const inCompletedFilter = userTop.filter((u) => u.completed === false);
-    setTodoListItem(inCompletedFilter);
-  }, []);
-
-  function deleteTodo(deleteTitle) {
-    const filterTitle = todoListItem.filter(
-      (todoListItem) => todoListItem.title !== deleteTitle
-    );
-    setTodoListItem(filterTitle);
-  }
-
+export default function TodoList({
+  navigation,
+  inCompletedFilter,
+  deleteTodo,
+  setCheck,
+}) {
   return (
     <Fragment>
-      {todoListItem ? (
+      {inCompletedFilter ? (
         <FlatList
           style={styles.total}
-          data={todoListItem}
+          data={inCompletedFilter}
           renderItem={({ item }) => {
             return (
               <TodoItem
@@ -34,6 +25,7 @@ export default function TodoList({ navigation, userTop }) {
                 id={item.id}
                 item={item}
                 deleteTodo={deleteTodo}
+                setCheck={setCheck}
               />
             );
           }}

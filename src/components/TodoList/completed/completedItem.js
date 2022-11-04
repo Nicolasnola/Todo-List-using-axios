@@ -6,9 +6,13 @@ import { TouchableNativeFeedback } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Checkbox } from "react-native-elements";
 
-export default function CompletedItem({ completed, title, deleteTodo }) {
-  const [indicator, setIndicator] = useState(completed);
-
+export default function CompletedItem({
+  completed,
+  title,
+  deleteTodo,
+  setCheck,
+  item,
+}) {
   //const [todoTitle, setTodoTitle] = useState(title);
 
   return (
@@ -22,8 +26,8 @@ export default function CompletedItem({ completed, title, deleteTodo }) {
             uncheckedIcon="square-o"
             checkedColor="green"
             uncheckedColor="#AEB6BF"
-            checked={indicator}
-            onPress={() => setIndicator(!indicator)}
+            checked={item.completed}
+            onPress={() => setCheck(item)}
           />
         </View>
       </View>
